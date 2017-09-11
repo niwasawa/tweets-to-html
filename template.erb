@@ -1,0 +1,12 @@
+<div class="t2h-tweets">
+<% tweets.each do |t| %>
+  <div class="t2h-tweet">
+    <%= t['body'] %>
+    <% t['images'].each do |image| %>
+    <br><img src="<%= image['src'] %>" class="t2h-image" width="<%= image['width'] %>" height="<%= image['height'] %>">
+    <% end %>
+    <br>posted at <a href="<%= t['url'] %>" target="_blank"><%= t['time'] %></a>
+  </div>
+<% end %>
+</div>
+
