@@ -4,17 +4,17 @@ Tweets to HTML
 ## Setup
 
 ```
-$ bundle install
+$ bundle install --path vendor/bundle
 ```
 
 ## Examples
 
 ```
-$ ruby t2h.rb
+$ bundle exec ruby t2h.rb
 ```
 
 ```
-$ ruby t2h.rb --auth=../my_auth.json --image-size=600 > output.html
+$ bundle exec ruby t2h.rb --auth=../my-auth.json --image-size=600 > ../output.html
 ```
 
 ## Help
