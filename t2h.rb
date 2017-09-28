@@ -18,6 +18,7 @@ module TweetsToHtml
       res = t.statuses_user_timeline({
         'screen_name' => params.screen_name,
         'count' => params.count,
+        'tweet_mode' => 'extended'
       })
 
       statuses = JSON.parse(res.body)
@@ -42,9 +43,9 @@ module TweetsToHtml
 
     def create_body(status)
       if status['retweeted_status']
-        body = CGI.escapeHTML("RT @#{status['retweeted_status']['user']['screen_name']}\n#{status['retweeted_status']['text']}")
+        body = CGI.escapeHTML("RT @#{status['retweeted_status']['user']['screen_name']}\n#{status['retweeted_status']['full_text']}")
       else
-        body = CGI.escapeHTML(status['text'])
+        body = CGI.escapeHTML(status['full_text'])
       end
       body = body.gsub(/\n/, '<br>')
       body = body.gsub(/ /, '&nbsp;')
