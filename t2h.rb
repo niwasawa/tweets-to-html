@@ -22,7 +22,6 @@ module TweetsToHtml
       })
 
       statuses = JSON.parse(res.body)
-puts JSON.pretty_generate(statuses)
 
       tweets = []
       statuses.each do |status|
