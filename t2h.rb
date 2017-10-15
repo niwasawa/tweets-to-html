@@ -22,6 +22,7 @@ module TweetsToHtml
       })
 
       statuses = JSON.parse(res.body)
+puts JSON.pretty_generate(statuses)
 
       tweets = []
       statuses.each do |status|
@@ -62,8 +63,8 @@ module TweetsToHtml
       end
       
       images = []
-      if status['entities'] && status['entities']['media']
-        status['entities']['media'].each do |media|
+      if status['extended_entities'] && status['extended_entities']['media']
+        status['extended_entities']['media'].each do |media|
           w = media['sizes'][image_size]['w']
           h = media['sizes'][image_size]['h']
           if long_edge_length != nil
